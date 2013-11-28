@@ -24,7 +24,7 @@ end
 local function nginx_command(env, nginx_conf_file_path, nginx_signal)
     local env_cmd = ""
     if env ~= nil then env_cmd = "-g \"env GIN_ENV=" .. env .. ";\"" end
-    local cmd = "nginx " .. nginx_signal .. " " .. env_cmd .. " -p `pwd`/ -c " .. nginx_conf_file_path .. " 2>/dev/null"
+    local cmd = "nginx " .. nginx_signal .. " " .. env_cmd .. " -p `pwd`/ -c " .. nginx_conf_file_path .. " 2>>logs/" .. env .."-gin.log"
 
     return os.execute(cmd)
 end
