@@ -80,7 +80,7 @@ function GinLauncher.start(env)
         return
     end
 
-    result = base_launcher:start(env)
+    result = base_launcher:start(Gin.env)
 
     if result == 0 then
         if Gin.env ~= 'test' then
@@ -95,7 +95,7 @@ function GinLauncher.stop(env)
     -- init base_launcher
     local base_launcher = base_launcher()
 
-    result = base_launcher:stop(env)
+    result = base_launcher:stop(Gin.env)
 
     if Gin.env ~= 'test' then
         if result == 0 then
